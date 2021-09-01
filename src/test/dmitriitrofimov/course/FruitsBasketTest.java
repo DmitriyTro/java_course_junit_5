@@ -2,6 +2,7 @@ package dmitriitrofimov.course;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
@@ -49,14 +50,14 @@ class FruitsBasketTest {
 				"Removing a fruit from the basket");
 	}
 
-//	@Test
-//	void testForTimeout() {
-//		assertTimeout(
-//				Duration.ofMillis(1),
-//				() -> Thread.sleep(10),
-//				() -> "Testing for productivity"
-//		);
-//	}
+	@Test
+	void testForTimeout() {
+		assertTimeout(
+				Duration.ofSeconds(1),
+				() -> Thread.sleep(1500),
+				() -> "Testing for productivity"
+		);
+	}
 
 	@Test
 	void testForNull() {
@@ -74,6 +75,7 @@ class FruitsBasketTest {
 	}
 
 	@Test
+	@Disabled
 	void testArrays() {
 		String wish = "Bonne annee et bonne sante!";
 		String[] expected = {"Bonne", "annee", "et", "bonne", "sante"};

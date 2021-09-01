@@ -14,7 +14,7 @@ public class TestParameterized_2 {
 		assertEquals(lowered, arg.toLowerCase());
 	}
 
-	@ParameterizedTest
+	@ParameterizedTest(name = "The string {0} is {1} chars in length")
 	@CsvFileSource(resources = "")
 	void testStringsInFileToLowerCase(String arg, String lowered) {
 		assertEquals(lowered, arg.toLowerCase());

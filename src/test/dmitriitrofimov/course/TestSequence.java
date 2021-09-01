@@ -37,7 +37,7 @@ public class TestSequence {
 				() -> str.length());
 	}
 
-	@RepeatedTest(5)
+	@RepeatedTest(name = "Repeated test", value = 5)
 	void testRepeated() {
 		System.out.println("in testRepeated()");
 	}
