@@ -2,6 +2,8 @@ package dmitriitrofimov.course;
 
 import org.junit.jupiter.api.*;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 @TestMethodOrder(MethodOrderer.DisplayName.class)
 public class TestSequence {
 
@@ -24,6 +26,20 @@ public class TestSequence {
 	@Test
 	void test2(TestInfo info) {
 		System.out.println("in " + info.getDisplayName());
+	}
+
+	@Test
+	@DisplayName("When string is null, throw an NPE")
+	void testException() {
+		String str = null;
+		assertThrows(
+				NullPointerException.class,
+				() -> str.length());
+	}
+
+	@RepeatedTest(5)
+	void testRepeated() {
+		System.out.println("in testRepeated()");
 	}
 
 	@AfterAll
