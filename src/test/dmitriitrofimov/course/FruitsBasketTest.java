@@ -4,6 +4,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
+import java.util.Arrays;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -46,8 +49,40 @@ class FruitsBasketTest {
 				"Removing a fruit from the basket");
 	}
 
-	@AfterEach
-	void destroy() {
-		basket.removeAll();
+//	@Test
+//	void testForTimeout() {
+//		assertTimeout(
+//				Duration.ofMillis(1),
+//				() -> Thread.sleep(10),
+//				() -> "Testing for productivity"
+//		);
+//	}
+
+	@Test
+	void testForNull() {
+		basket = null;
+		assertNull(basket, "Checking if the basket is null");
 	}
+
+	@Test
+	void testForTruth() {
+		List<Fruit> lot = Arrays.asList(
+				new Fruit("Peach", 100),
+				new Fruit("Tangerine", 50),
+				new Fruit("Mango", 150));
+		assertTrue(basket.addALot(lot), "Adding a lot of fruits");
+	}
+
+	@Test
+	void testArrays() {
+		String wish = "Bonne annee et bonne sante!";
+		String[] expected = {"Bonne", "annee", "et", "bonne", "sante"};
+		String[] actual = basket.greet(wish);
+		assertArrayEquals(expected, actual);
+	}
+
+//	@AfterEach
+//	void destroy() {
+//		basket.removeAll();
+//	}
 }

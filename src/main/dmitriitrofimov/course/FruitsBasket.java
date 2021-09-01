@@ -26,4 +26,12 @@ public class FruitsBasket {
 	public void removeAll() {
 		basket.clear();
 	}
+
+	public boolean addALot(List<Fruit> lot) {
+		return basket.addAll(lot);
+	}
+
+	public String[] greet(String wish) {
+		return wish.split("[ !]");
+	}
 }
